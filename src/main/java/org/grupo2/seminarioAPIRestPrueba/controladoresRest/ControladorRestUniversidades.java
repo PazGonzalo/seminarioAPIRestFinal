@@ -2,6 +2,7 @@ package org.grupo2.seminarioAPIRestPrueba.controladoresRest;
 
 import org.grupo2.controladores.ControladorUniversidades;
 import org.grupo2.exceptions.CarreraException;
+import org.grupo2.exceptions.PuntuacionesException;
 import org.grupo2.exceptions.UniversidadException;
 import org.grupo2.vo.UniversidadVO;
 import org.springframework.web.bind.annotation.*;
@@ -26,9 +27,8 @@ public class ControladorRestUniversidades {
     }
 
     @PostMapping("/actualizarPuntuacion")
-    public void actualizarPuntuacion(@RequestParam(name = "idUniversidad") int idUniversidad,
-                                     @RequestParam(name = "puntuacion") int puntuacion) throws UniversidadException {
-        ControladorUniversidades.getInstance().actualizarPuntuacion(puntuacion, idUniversidad);
+    public void actualizarPuntuacion(@RequestParam(name = "idUniversidad") int idUniversidad) throws UniversidadException, PuntuacionesException {
+        ControladorUniversidades.getInstance().actualizarPuntuacion(idUniversidad);
     }
 
     @RequestMapping("/getUniversidades")
