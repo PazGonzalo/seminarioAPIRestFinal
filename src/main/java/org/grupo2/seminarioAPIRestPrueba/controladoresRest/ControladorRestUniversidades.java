@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 public class ControladorRestUniversidades {
@@ -57,7 +56,7 @@ public class ControladorRestUniversidades {
 
     //FIXME DEVUELVE UNIVERSIDADES REPETIDAS, HABRIA QUE TOMAR EL CONCEPTO DE CONJUNTOS PARA QUE NO SE REPITA
     @RequestMapping("/getUniversidadesByCarrera")
-    public Set<UniversidadVO> getUniversidadesByCarrera(@RequestParam(name = "idCarrera") int idCarrera) throws CarreraException {
+    public List<UniversidadVO> getUniversidadesByCarrera(@RequestParam(name = "idCarrera") int idCarrera) throws CarreraException, UniversidadException {
         return ControladorUniversidades.getInstance().getUniversidadesByCarrera(idCarrera);
     }
 
