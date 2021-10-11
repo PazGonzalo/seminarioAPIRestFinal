@@ -42,6 +42,7 @@ public class ControladorRestCarreras {
         ControladorCarreras.getInstance().setNombre(idCarrera, nombre);
     }
 
+
     @PostMapping("/modificarDescripcion")
     public void modificarDescripcion(@RequestParam(name = "idCarrera") int idCarrera,
                                      @RequestParam(name = "descripcion") String descripcion) throws CarreraException {
