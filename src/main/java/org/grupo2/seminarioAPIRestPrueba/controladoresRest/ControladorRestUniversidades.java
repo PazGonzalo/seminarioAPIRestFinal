@@ -54,7 +54,6 @@ public class ControladorRestUniversidades {
         return ControladorUniversidades.getInstance().getUniversidadesByUbicacion(zona);
     }
 
-    //FIXME DEVUELVE UNIVERSIDADES REPETIDAS, HABRIA QUE TOMAR EL CONCEPTO DE CONJUNTOS PARA QUE NO SE REPITA
     @RequestMapping("/getUniversidadesByCarrera")
     public List<UniversidadVO> getUniversidadesByCarrera(@RequestParam(name = "idCarrera") int idCarrera) throws CarreraException, UniversidadException {
         return ControladorUniversidades.getInstance().getUniversidadesByCarrera(idCarrera);
