@@ -4,6 +4,7 @@ import org.grupo2.controladores.ControladorCarreras;
 import org.grupo2.exceptions.CarreraException;
 import org.grupo2.exceptions.PlanEstudioException;
 import org.grupo2.exceptions.UniversidadException;
+import org.grupo2.modelo.Carrera;
 import org.grupo2.vo.CarreraVO;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -107,6 +108,11 @@ public class ControladorRestCarreras {
     @RequestMapping("/getCarrerasByIdComun")
     public List<CarreraVO> getCarrerasByIdComun(@RequestParam(name = "idComun") int idComun) throws CarreraException {
         return ControladorCarreras.getInstance().getCarrerasByIdComun(idComun);
+    }
+    @RequestMapping("/getCarreraByUniversidadAndIdGlobal")
+    public CarreraVO getCarreraByUniversidadAndIdGlobal(@RequestParam(name = "idUniversidad") int idUniversidad, @RequestParam(name = "idGlobal")int idGlobal) throws CarreraException, UniversidadException {
+        return ControladorCarreras.getInstance().getCarreraByUniversidadAndIdCareerGlobal(idUniversidad,idGlobal);
+
     }
 
 
