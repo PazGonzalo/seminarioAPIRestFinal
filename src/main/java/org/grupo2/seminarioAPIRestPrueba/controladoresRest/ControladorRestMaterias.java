@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 public class ControladorRestMaterias {
 
-    @PostMapping("/createMateria")
+    @PostMapping("/crearMateria")
     public void crearMateria(@RequestParam(name = "nombre") String nombre,
                              @RequestParam(name = "descripcion") String descripcion,
                              @RequestParam(name = "cargaHoraria") int cargaHoraria,
@@ -45,7 +45,7 @@ public class ControladorRestMaterias {
 
     @RequestMapping("/getMateriaByID")
     public MateriaVO getMateriaById(@RequestParam(name = "idMateria") int idMateria) throws MateriaException {
-        return ControladorMaterias.getInstance().getMateriaById(1);
+        return ControladorMaterias.getInstance().getMateriaById(idMateria);
     }
 
     @RequestMapping("/getMateriasByCarrera")
