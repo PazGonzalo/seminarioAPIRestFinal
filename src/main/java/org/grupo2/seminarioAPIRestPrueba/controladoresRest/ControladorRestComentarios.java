@@ -5,10 +5,7 @@ import org.grupo2.exceptions.CarreraException;
 import org.grupo2.exceptions.ComentariosException;
 import org.grupo2.exceptions.UniversidadException;
 import org.grupo2.vo.ComentarioVO;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,6 +13,7 @@ import java.util.List;
 public class ControladorRestComentarios {
 
     @PostMapping("/crearComentarioCarrera")
+    @CrossOrigin(origins="http://localhost:3000/")
     public void crearComentarioCarrera(@RequestParam(name = "idUsuario") int idUser,
                                        @RequestParam(name = "idUniversidad") int idUniversidad,
                                        @RequestParam(name = "comentario") String comentario,
@@ -24,6 +22,7 @@ public class ControladorRestComentarios {
     }
 
     @PostMapping("/crearComentarioUniversidad")
+    @CrossOrigin(origins="http://localhost:3000/")
     public void crearComentarioUniversidad(@RequestParam(name = "idUsuario") int idUser,
                                            @RequestParam(name = "idUniversidad") int idUniversidad,
                                            @RequestParam(name = "comentario") String comentario) throws UniversidadException, CarreraException {
@@ -31,11 +30,13 @@ public class ControladorRestComentarios {
     }
 
     @RequestMapping("/getComentariosByUniversidad")
+    @CrossOrigin(origins="http://localhost:3000/")
     public List<ComentarioVO> leerComentariosUniversidad(@RequestParam(name = "idUniversidad") int idUniversidad) throws ComentariosException {
         return ControladorComentarios.getInstance().leerComentariosUniversidad(idUniversidad);
     }
 
     @RequestMapping("/getComentariosByCarrera")
+    @CrossOrigin(origins="http://localhost:3000/")
     public List<ComentarioVO> leerComentariosCarrera(@RequestParam(name = "idUniversidad") int idUniversidad,
                                                      @RequestParam(name = "idCarrera") int idCarrera) throws ComentariosException, UniversidadException, CarreraException {
         return ControladorComentarios.getInstance().leerComentariosCarrera(idUniversidad, idCarrera);

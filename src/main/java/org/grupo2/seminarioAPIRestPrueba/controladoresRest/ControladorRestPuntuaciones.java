@@ -6,10 +6,7 @@ import org.grupo2.exceptions.PuntuacionesException;
 import org.grupo2.exceptions.UniversidadException;
 import org.grupo2.exceptions.UsuarioException;
 import org.grupo2.vo.PuntuacionVO;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,6 +14,7 @@ import java.util.List;
 public class ControladorRestPuntuaciones {
 
     @PostMapping("/crearPuntuacionCarrera")
+    @CrossOrigin(origins="http://localhost:3000/")
     public void crearPuntuacionCarrera(@RequestParam(name = "idUsuario") int idUsuario,
                                        @RequestParam(name = "idUniversidad") int idUniversidad,
                                        @RequestParam(name = "puntuacion") int puntuacion,
@@ -25,6 +23,7 @@ public class ControladorRestPuntuaciones {
     }
 
     @PostMapping("/crearPuntuacionUniversidad")
+    @CrossOrigin(origins="http://localhost:3000/")
     public void crearPuntuacionUniversidad(@RequestParam(name = "idUsuario") int idUsuario,
                                            @RequestParam(name = "idUniversidad") int idUniversidad,
                                            @RequestParam(name = "puntuacion") int puntuacion) throws UniversidadException, CarreraException, UsuarioException, PuntuacionesException {
@@ -32,12 +31,14 @@ public class ControladorRestPuntuaciones {
     }
 
     @RequestMapping("/getPuntuacionesCarrera")
+    @CrossOrigin(origins="http://localhost:3000/")
     public List<PuntuacionVO> leerPuntuacionCarrera(@RequestParam(name = "idUniversidad") int idUniversidad,
                                                     @RequestParam(name = "idCarrera") int idCarrera) throws PuntuacionesException {
         return ControladorPuntuaciones.getInstance().leerPuntuacionCarrera(idUniversidad, idCarrera);
     }
 
     @RequestMapping("/getPuntuacionesUniversidad")
+    @CrossOrigin(origins="http://localhost:3000/")
     public List<PuntuacionVO> leerPuntuacionUniversidad(@RequestParam(name = "idUniversidad") int idUniversidad) throws PuntuacionesException {
         return ControladorPuntuaciones.getInstance().leerPuntuacionUniversidad(idUniversidad);
     }
