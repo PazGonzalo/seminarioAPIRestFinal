@@ -4,10 +4,7 @@ import org.grupo2.controladores.ControladorUniversidades;
 import org.grupo2.exceptions.CarreraException;
 import org.grupo2.exceptions.UniversidadException;
 import org.grupo2.vo.UniversidadVO;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
