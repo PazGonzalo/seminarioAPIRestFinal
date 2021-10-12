@@ -15,19 +15,19 @@ public class ControladorRestComentarios {
 
     @PostMapping("/crearComentarioCarrera")
     @CrossOrigin(origins="http://localhost:3000/")
-    public void crearComentarioCarrera(@RequestParam(name = "idUsuario") int idUser,
+    public void crearComentarioCarrera(@RequestParam(name = "alias") String alias,
                                        @RequestParam(name = "idUniversidad") int idUniversidad,
                                        @RequestParam(name = "comentario") String comentario,
                                        @RequestParam(name = "idCarrera") int idCarrera) throws UniversidadException, CarreraException, UsuarioException {
-        ControladorComentarios.getInstance().crearComentarioCarrera(idUser, idUniversidad, comentario, idCarrera);
+        ControladorComentarios.getInstance().crearComentarioCarrera(alias, idUniversidad, comentario, idCarrera);
     }
 
     @PostMapping("/crearComentarioUniversidad")
     @CrossOrigin(origins="http://localhost:3000/")
-    public void crearComentarioUniversidad(@RequestParam(name = "idUsuario") int idUser,
+    public void crearComentarioUniversidad(@RequestParam(name = "alias") String alias,
                                            @RequestParam(name = "idUniversidad") int idUniversidad,
                                            @RequestParam(name = "comentario") String comentario) throws UniversidadException, CarreraException, UsuarioException {
-        ControladorComentarios.getInstance().crearComentarioUniversidad(idUser, idUniversidad, comentario);
+        ControladorComentarios.getInstance().crearComentarioUniversidad(alias, idUniversidad, comentario);
     }
 
     @RequestMapping("/getComentariosByUniversidad")

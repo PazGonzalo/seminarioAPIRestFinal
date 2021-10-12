@@ -15,19 +15,19 @@ public class ControladorRestPuntuaciones {
 
     @PostMapping("/crearPuntuacionCarrera")
     @CrossOrigin(origins="http://localhost:3000/")
-    public void crearPuntuacionCarrera(@RequestParam(name = "idUsuario") int idUsuario,
+    public void crearPuntuacionCarrera(@RequestParam(name = "alias") String alias,
                                        @RequestParam(name = "idUniversidad") int idUniversidad,
                                        @RequestParam(name = "puntuacion") int puntuacion,
                                        @RequestParam(name = "idCarrera") int idCarrera) throws UniversidadException, CarreraException, PuntuacionesException, UsuarioException {
-        ControladorPuntuaciones.getInstance().crearPuntuacionCarrera(idUsuario, idUniversidad, puntuacion, idCarrera);
+        ControladorPuntuaciones.getInstance().crearPuntuacionCarrera(alias, idUniversidad, puntuacion, idCarrera);
     }
 
     @PostMapping("/crearPuntuacionUniversidad")
     @CrossOrigin(origins="http://localhost:3000/")
-    public void crearPuntuacionUniversidad(@RequestParam(name = "idUsuario") int idUsuario,
+    public void crearPuntuacionUniversidad(@RequestParam(name = "alias") String alias,
                                            @RequestParam(name = "idUniversidad") int idUniversidad,
                                            @RequestParam(name = "puntuacion") int puntuacion) throws UniversidadException, CarreraException, UsuarioException, PuntuacionesException {
-        ControladorPuntuaciones.getInstance().crearPuntuacionUniversidad(idUsuario, idUniversidad, puntuacion);
+        ControladorPuntuaciones.getInstance().crearPuntuacionUniversidad(alias, idUniversidad, puntuacion);
     }
 
     @RequestMapping("/getPuntuacionesCarrera")
