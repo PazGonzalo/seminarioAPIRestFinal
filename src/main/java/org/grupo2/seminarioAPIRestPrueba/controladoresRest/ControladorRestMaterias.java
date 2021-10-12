@@ -42,8 +42,6 @@ public class ControladorRestMaterias {
         ControladorMaterias.getInstance().actualizarCargaHoraria(cargaHoraria, id);
     }
 
-
-
     @RequestMapping("/getMateriaByID")
     @CrossOrigin(origins="http://localhost:3000/")
     public MateriaVO getMateriaById(@RequestParam(name = "idMateria") int idMateria) throws MateriaException {

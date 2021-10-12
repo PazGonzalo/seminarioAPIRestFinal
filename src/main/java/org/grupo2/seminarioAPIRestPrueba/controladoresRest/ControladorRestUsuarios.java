@@ -47,5 +47,6 @@ public class ControladorRestUsuarios {
     public List<UsuarioVO> getUsuariosByRol(@RequestParam(name = "rol") String rol) throws UsuarioException {
         return ControladorUsuarios.getInstance().getUsuariosByRol(rol);
     }
+
 }
 
