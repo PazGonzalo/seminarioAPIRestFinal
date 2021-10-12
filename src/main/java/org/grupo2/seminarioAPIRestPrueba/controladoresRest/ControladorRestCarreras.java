@@ -81,6 +81,11 @@ public class ControladorRestCarreras {
     public CarreraVO getCarreraById(@RequestParam(name = "idCarrera") int idCarrera) throws CarreraException {
         return ControladorCarreras.getInstance().getCarreraById(idCarrera);
     }
+    @RequestMapping("/getAllCarrerasSinRepeticion")
+    @CrossOrigin(origins="http://localhost:3000/")
+    public List<CarreraVO> getAllCarrerasSinRepeticion() throws CarreraException{
+        return ControladorCarreras.getInstance().getAllCarrerasSinRepeticion();
+    }
 
     @RequestMapping("/getAllCarreras")
     @CrossOrigin(origins="http://localhost:3000/")
