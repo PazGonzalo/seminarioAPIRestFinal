@@ -81,6 +81,7 @@ public class ControladorRestCarreras {
     public CarreraVO getCarreraById(@RequestParam(name = "idCarrera") int idCarrera) throws CarreraException {
         return ControladorCarreras.getInstance().getCarreraById(idCarrera);
     }
+
     @RequestMapping("/getAllCarrerasSinRepeticion")
     @CrossOrigin(origins="http://localhost:3000/")
     public List<CarreraVO> getAllCarrerasSinRepeticion() throws CarreraException{
@@ -130,12 +131,13 @@ public class ControladorRestCarreras {
     public List<CarreraVO> getCarrerasByIdComun(@RequestParam(name = "idComun") int idComun) throws CarreraException {
         return ControladorCarreras.getInstance().getCarrerasByIdComun(idComun);
     }
+
     @RequestMapping("/getCarreraByUniversidadAndIdGlobal")
     @CrossOrigin(origins="http://localhost:3000/")
     public CarreraVO getCarreraByUniversidadAndIdGlobal(@RequestParam(name = "idUniversidad") int idUniversidad, @RequestParam(name = "idGlobal")int idGlobal) throws CarreraException, UniversidadException {
         return ControladorCarreras.getInstance().getCarreraByUniversidadAndIdCareerGlobal(idUniversidad,idGlobal);
-
     }
+
     @PostMapping("/actualizarPuntuacionCarrera")
     @CrossOrigin(origins="http://localhost:3000/")
     public void actualizarPuntuacionCarrera(@RequestParam(name = "idCareer") int idCareer) throws PuntuacionesException, CarreraException {
