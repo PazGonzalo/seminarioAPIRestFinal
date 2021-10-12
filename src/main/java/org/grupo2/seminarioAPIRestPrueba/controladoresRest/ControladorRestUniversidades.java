@@ -63,5 +63,10 @@ public class ControladorRestUniversidades {
     public List<UniversidadVO> getUniversidadesByCarrera(@RequestParam(name = "idCarrera") int idCarrera) throws CarreraException, UniversidadException {
         return ControladorUniversidades.getInstance().getUniversidadesByCarrera(idCarrera);
     }
+    @PostMapping("/actualizarGallery")
+    @CrossOrigin(origins="http://localhost:3000/")
+    public void actualizarGallery(@RequestParam(name = "idUniversidad")int idUniversidad,@RequestParam(name="photo")String photo) throws UniversidadException {
+         ControladorUniversidades.getInstance().actualizarGallery(idUniversidad,photo);
+    }
 
 }

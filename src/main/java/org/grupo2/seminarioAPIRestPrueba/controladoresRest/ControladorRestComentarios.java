@@ -4,6 +4,7 @@ import org.grupo2.controladores.ControladorComentarios;
 import org.grupo2.exceptions.CarreraException;
 import org.grupo2.exceptions.ComentariosException;
 import org.grupo2.exceptions.UniversidadException;
+import org.grupo2.exceptions.UsuarioException;
 import org.grupo2.vo.ComentarioVO;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ public class ControladorRestComentarios {
     public void crearComentarioCarrera(@RequestParam(name = "idUsuario") int idUser,
                                        @RequestParam(name = "idUniversidad") int idUniversidad,
                                        @RequestParam(name = "comentario") String comentario,
-                                       @RequestParam(name = "idCarrera") int idCarrera) throws UniversidadException, CarreraException {
+                                       @RequestParam(name = "idCarrera") int idCarrera) throws UniversidadException, CarreraException, UsuarioException {
         ControladorComentarios.getInstance().crearComentarioCarrera(idUser, idUniversidad, comentario, idCarrera);
     }
 
@@ -25,7 +26,7 @@ public class ControladorRestComentarios {
     @CrossOrigin(origins="http://localhost:3000/")
     public void crearComentarioUniversidad(@RequestParam(name = "idUsuario") int idUser,
                                            @RequestParam(name = "idUniversidad") int idUniversidad,
-                                           @RequestParam(name = "comentario") String comentario) throws UniversidadException, CarreraException {
+                                           @RequestParam(name = "comentario") String comentario) throws UniversidadException, CarreraException, UsuarioException {
         ControladorComentarios.getInstance().crearComentarioUniversidad(idUser, idUniversidad, comentario);
     }
 

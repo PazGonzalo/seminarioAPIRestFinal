@@ -18,7 +18,7 @@ public class ControladorRestPuntuaciones {
     public void crearPuntuacionCarrera(@RequestParam(name = "idUsuario") int idUsuario,
                                        @RequestParam(name = "idUniversidad") int idUniversidad,
                                        @RequestParam(name = "puntuacion") int puntuacion,
-                                       @RequestParam(name = "idCarrera") int idCarrera) throws UniversidadException, CarreraException {
+                                       @RequestParam(name = "idCarrera") int idCarrera) throws UniversidadException, CarreraException, PuntuacionesException, UsuarioException {
         ControladorPuntuaciones.getInstance().crearPuntuacionCarrera(idUsuario, idUniversidad, puntuacion, idCarrera);
     }
 

@@ -1,8 +1,10 @@
 package org.grupo2.seminarioAPIRestPrueba.controladoresRest;
 
 import org.grupo2.controladores.ControladorCarreras;
+import org.grupo2.controladores.ControladorUniversidades;
 import org.grupo2.exceptions.CarreraException;
 import org.grupo2.exceptions.PlanEstudioException;
+import org.grupo2.exceptions.PuntuacionesException;
 import org.grupo2.exceptions.UniversidadException;
 import org.grupo2.modelo.Carrera;
 import org.grupo2.vo.CarreraVO;
@@ -127,6 +129,11 @@ public class ControladorRestCarreras {
     public CarreraVO getCarreraByUniversidadAndIdGlobal(@RequestParam(name = "idUniversidad") int idUniversidad, @RequestParam(name = "idGlobal")int idGlobal) throws CarreraException, UniversidadException {
         return ControladorCarreras.getInstance().getCarreraByUniversidadAndIdCareerGlobal(idUniversidad,idGlobal);
 
+    }
+    @PostMapping("/actualizarPuntuacionCarrera")
+    @CrossOrigin(origins="http://localhost:3000/")
+    public void actualizarPuntuacionCarrera(@RequestParam(name = "idCareer") int idCareer) throws PuntuacionesException, CarreraException {
+        ControladorCarreras.getInstance().setPuntuacion(idCareer);
     }
 
 
