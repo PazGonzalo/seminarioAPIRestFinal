@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 public class ControladorRestPuntuaciones {
-
+/*
     @PostMapping("/crearPuntuacionCarrera")
     @CrossOrigin(origins="http://localhost:3000/")
     public void crearPuntuacionCarrera(@RequestParam(name = "alias") String alias,
@@ -21,7 +21,7 @@ public class ControladorRestPuntuaciones {
                                        @RequestParam(name = "idCarrera") int idCarrera) throws UniversidadException, CarreraException, PuntuacionesException, UsuarioException {
         ControladorPuntuaciones.getInstance().crearPuntuacionCarrera(alias, idUniversidad, puntuacion, idCarrera);
     }
-
+*/
     @PostMapping("/crearPuntuacionUniversidad")
     @CrossOrigin(origins="http://localhost:3000/")
     public void crearPuntuacionUniversidad(@RequestParam(name = "alias") String alias,
