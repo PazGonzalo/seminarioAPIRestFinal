@@ -143,7 +143,7 @@ public class ControladorRestCarreras {
     }
     @RequestMapping("/getCarrerasByEtiquetas")
     @CrossOrigin(origins="http://localhost:3000/")
-    public List<CarreraVO> obtenerPuntuacionCarrera(@RequestParam(name="etiquetas")List<Integer> etiquetas) throws EtiquetaCarreraException, CarreraException, EtiquetaException {
+    public List<CarreraVO> obtenerPuntuacionCarrera(@RequestParam(name="etiquetas")String etiquetas) throws EtiquetaCarreraException, CarreraException, EtiquetaException {
         return ControladorCarreras.getInstance().obtenerCarrerasPorEtiquetas(etiquetas);
     }
 
