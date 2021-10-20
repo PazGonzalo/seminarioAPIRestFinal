@@ -15,9 +15,11 @@ public class ControladorRestEtiquetas {
     public void crearEtiquetas(@RequestParam(name = "descripcion") String descripcion) throws EtiquetaException {
         ControladorEtiquetas.getInstance().crearEtiqueta(descripcion);
     }
+
     @RequestMapping("/getEtiquetas")
     @CrossOrigin(origins="https://localhost:3000/")
     public List<EtiquetaVO> getEtiquetas() throws EtiquetaException{
         return ControladorEtiquetas.getInstance().obtenerAllEtiquetas();
     }
+
 }

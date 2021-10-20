@@ -43,4 +43,23 @@ public class ControladorRestComentarios {
                                                      @RequestParam(name = "idCarrera") int idCarrera) throws ComentariosException, UniversidadException, CarreraException {
         return ControladorComentarios.getInstance().leerComentariosCarrera(idUniversidad, idCarrera);
     }
+
+    @RequestMapping("/getPendientesByUniversidad")
+    @CrossOrigin(origins="http://localhost:3000/")
+    public List<ComentarioVO> getComentariosPendientesByUniversidad() throws ComentariosException {
+        return ControladorComentarios.getInstance().getComentariosPendientesByUniversidades();
+    }
+
+    @RequestMapping("/getPendientesByCarrera")
+    @CrossOrigin(origins="http://localhost:3000/")
+    public List<ComentarioVO> getComentariosPendientesByCarrera() throws ComentariosException {
+        return ControladorComentarios.getInstance().getComentariosPendientesByCarreras();
+    }
+
+    @RequestMapping("/aprobarComentario")
+    @CrossOrigin(origins="http://localhost:3000/")
+    public void aprobarComentario(@RequestParam(name = "idComentario") int idComentario) throws ComentariosException {
+        ControladorComentarios.getInstance().aprobarComentario(idComentario);
+    }
+
 }
