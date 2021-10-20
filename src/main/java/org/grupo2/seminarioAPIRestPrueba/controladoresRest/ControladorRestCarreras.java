@@ -2,11 +2,9 @@ package org.grupo2.seminarioAPIRestPrueba.controladoresRest;
 
 import org.grupo2.controladores.ControladorCarreras;
 import org.grupo2.controladores.ControladorUniversidades;
-import org.grupo2.exceptions.CarreraException;
-import org.grupo2.exceptions.PlanEstudioException;
-import org.grupo2.exceptions.PuntuacionesException;
-import org.grupo2.exceptions.UniversidadException;
+import org.grupo2.exceptions.*;
 import org.grupo2.modelo.Carrera;
+import org.grupo2.modelo.Etiqueta;
 import org.grupo2.vo.CarreraVO;
 import org.springframework.web.bind.annotation.*;
 
@@ -143,6 +141,10 @@ public class ControladorRestCarreras {
     public void actualizarPuntuacionCarrera(@RequestParam(name = "idCareer") int idCareer) throws PuntuacionesException, CarreraException {
         ControladorCarreras.getInstance().setPuntuacion(idCareer);
     }
-
+    @RequestMapping("/getCarrerasByEtiquetas")
+    @CrossOrigin(origins="http://localhost:3000/")
+    public List<CarreraVO> obtenerPuntuacionCarrera(@RequestParam(name="etiquetas")List<Integer> etiquetas) throws EtiquetaCarreraException, CarreraException, EtiquetaException {
+        return ControladorCarreras.getInstance().obtenerCarrerasPorEtiquetas(etiquetas);
+    }
 
 }
