@@ -43,4 +43,11 @@ public class ControladorRestPuntuaciones {
         return ControladorPuntuaciones.getInstance().leerPuntuacionUniversidad(idUniversidad);
     }
 
+    @RequestMapping("/getPuntuacionByUsuarioAndCarrera")
+    @CrossOrigin(origins="http://localhost:3000/")
+    public PuntuacionVO getPuntuacionByUsuarioAndCarrera(@RequestParam(name = "idUsuario") int idUsuario,
+                                                         @RequestParam(name = "idCarrera") int idCarrera) throws PuntuacionesException {
+        return ControladorPuntuaciones.getInstance().getPuntuacionByUsuarioAndCarrera(idUsuario, idCarrera);
+    }
+
 }
