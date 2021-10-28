@@ -19,8 +19,9 @@ public class ControladorRestCarreras {
     public void crearCarrera(@RequestParam(name = "idUniversidad") int idUniversidad,
                              @RequestParam(name = "nombreCarrera") String nombre,
                              @RequestParam(name = "descripcionCarrera") String descripcion,
+                             @RequestParam(name = "duracionCarrera") int duracion,
                              @RequestParam(name = "perfilProfesional") String perfil) throws UniversidadException, CarreraException {
-        ControladorCarreras.getInstance().crearCarrera(idUniversidad, nombre, descripcion, perfil);
+        ControladorCarreras.getInstance().crearCarrera(idUniversidad, nombre, descripcion, perfil,duracion);
     }
 
     @PostMapping("/agregarPlanEstudios")
@@ -148,7 +149,7 @@ public class ControladorRestCarreras {
     }
 
     @RequestMapping("/getCarrerasByString")
-    @CrossOrigin(origins = "hhtp://localhost:3000/")
+    @CrossOrigin(origins = "http://localhost:3000/")
     public List<CarreraVO> obtenerCarrerasByString(@RequestParam(name="carreras")String carreras,@RequestParam(name = "idGlobal")int idGlobal) throws CarreraException {
         return ControladorCarreras.getInstance().obtenerCarrerasByString(carreras,idGlobal);
     }

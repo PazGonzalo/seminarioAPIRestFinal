@@ -16,8 +16,10 @@ public class ControladorRestUniversidades {
     @CrossOrigin(origins="http://localhost:3000/")
     public void crearUniversidad(@RequestParam(name = "nombre") String nombre,
                                  @RequestParam(name = "descripcion") String descripcion,
-                                 @RequestParam(name = "zona") String zona) throws UniversidadException {
-        ControladorUniversidades.getInstance().crearUniversidad(nombre, descripcion, zona);
+                                 @RequestParam(name = "ubicacion") String ubicacion,
+                                 @RequestParam(name= "provincia")String provincia,
+                                 @RequestParam(name= "localidad")String localidad) throws UniversidadException {
+        ControladorUniversidades.getInstance().crearUniversidad(nombre, descripcion, ubicacion,provincia,localidad);
     }
 
     @PostMapping("/actualizarUniversidad")
