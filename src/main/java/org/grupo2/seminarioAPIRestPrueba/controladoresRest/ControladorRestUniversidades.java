@@ -85,4 +85,11 @@ public class ControladorRestUniversidades {
         return ControladorUniversidades.getInstance().getUniversidadesByProvincia(provincia);
     }
 
+    @RequestMapping("/getUniversidadesByProvinciaAndTipo")
+    @CrossOrigin(origins = "http://localhost:3000/")
+    public List<UniversidadVO> getUniversidadesByProvinciaAndTipo(@RequestParam(name = "provincia") String provincia,
+                                                                  @RequestParam(name = "tipo") String tipo) throws UniversidadException {
+        return ControladorUniversidades.getInstance().getUniversidadesByProvinciaAndTipo(provincia, tipo);
+    }
+
 }
