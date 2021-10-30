@@ -17,9 +17,9 @@ public class ControladorRestMaterias {
     public void crearMateria(@RequestParam(name = "nombre") String nombre,
                              @RequestParam(name = "descripcion") String descripcion,
                              @RequestParam(name = "cargaHoraria") int cargaHoraria,
-                             @RequestParam(name = "año") int año,
+                             @RequestParam(name = "year") int year,
                              @RequestParam(name = "idPlanEstudios") int idPlan) throws MateriaException, CarreraException, PlanEstudioException {
-        ControladorMaterias.getInstance().crearMateria(nombre, descripcion, cargaHoraria, idPlan,año);
+        ControladorMaterias.getInstance().crearMateria(nombre, descripcion, cargaHoraria, idPlan,year);
     }
 
     @PostMapping("/actualizarNombre")
