@@ -13,17 +13,17 @@ import java.util.List;
 public class ControladorRestUniversidades {
 
     @PostMapping("/crearUniversidad")
-    @CrossOrigin(origins="http://localhost:3000/")
+    @CrossOrigin(origins = "http://localhost:3000/")
     public void crearUniversidad(@RequestParam(name = "nombre") String nombre,
                                  @RequestParam(name = "descripcion") String descripcion,
                                  @RequestParam(name = "ubicacion") String ubicacion,
-                                 @RequestParam(name= "provincia")String provincia,
-                                 @RequestParam(name= "localidad")String localidad) throws UniversidadException {
-        ControladorUniversidades.getInstance().crearUniversidad(nombre, descripcion, ubicacion,provincia,localidad);
+                                 @RequestParam(name = "provincia") String provincia,
+                                 @RequestParam(name = "localidad") String localidad) throws UniversidadException {
+        ControladorUniversidades.getInstance().crearUniversidad(nombre, descripcion, ubicacion, provincia, localidad);
     }
 
     @PostMapping("/actualizarUniversidad")
-    @CrossOrigin(origins="http://localhost:3000/")
+    @CrossOrigin(origins = "http://localhost:3000/")
     public void actualizarUniversidad(@RequestParam(name = "nombre") String nombre,
                                       @RequestParam(name = "descripcion") String descripcion,
                                       @RequestParam(name = "zona") String zona) throws UniversidadException {
@@ -31,50 +31,57 @@ public class ControladorRestUniversidades {
     }
 
     @PostMapping("/actualizarPuntuacion")
-    @CrossOrigin(origins="http://localhost:3000/")
+    @CrossOrigin(origins = "http://localhost:3000/")
     public void actualizarPuntuacion(@RequestParam(name = "idUniversidad") int idUniversidad) throws UniversidadException, PuntuacionesException {
         ControladorUniversidades.getInstance().actualizarPuntuacion(idUniversidad);
     }
 
     @RequestMapping("/getUniversidades")
-    @CrossOrigin(origins="http://localhost:3000/")
+    @CrossOrigin(origins = "http://localhost:3000/")
     public List<UniversidadVO> getUniversidades() throws UniversidadException {
         return ControladorUniversidades.getInstance().getAllUniversidades();
     }
 
     @RequestMapping("/getUniversidadByID")
-    @CrossOrigin(origins="http://localhost:3000/")
+    @CrossOrigin(origins = "http://localhost:3000/")
     public UniversidadVO getUniversidadById(@RequestParam(name = "idUniversidad") int idUniversidad) throws UniversidadException {
         return ControladorUniversidades.getInstance().getUniversidadByID(idUniversidad);
     }
 
     @RequestMapping("/getUniversidadByNombre")
-    @CrossOrigin(origins="http://localhost:3000/")
+    @CrossOrigin(origins = "http://localhost:3000/")
     public UniversidadVO getUniversidadByNombre(@RequestParam(name = "nombre") String nombre) throws UniversidadException {
         return ControladorUniversidades.getInstance().getUniversidadByNombre(nombre);
     }
 
     @RequestMapping("/getUniversidadesByUbicacion")
-    @CrossOrigin(origins="http://localhost:3000/")
+    @CrossOrigin(origins = "http://localhost:3000/")
     public List<UniversidadVO> getUniversidadesByZona(@RequestParam(name = "zona") String zona) throws UniversidadException {
         return ControladorUniversidades.getInstance().getUniversidadesByUbicacion(zona);
     }
 
     @RequestMapping("/getUniversidadesByCarrera")
-    @CrossOrigin(origins="http://localhost:3000/")
+    @CrossOrigin(origins = "http://localhost:3000/")
     public List<UniversidadVO> getUniversidadesByCarrera(@RequestParam(name = "idCarrera") int idCarrera) throws CarreraException, UniversidadException {
         return ControladorUniversidades.getInstance().getUniversidadesByCarrera(idCarrera);
     }
 
     @PostMapping("/actualizarGallery")
-    @CrossOrigin(origins="http://localhost:3000/")
-    public void actualizarGallery(@RequestParam(name = "idUniversidad")int idUniversidad,@RequestParam(name="photo")String photo) throws UniversidadException {
-         ControladorUniversidades.getInstance().actualizarGallery(idUniversidad,photo);
+    @CrossOrigin(origins = "http://localhost:3000/")
+    public void actualizarGallery(@RequestParam(name = "idUniversidad") int idUniversidad, @RequestParam(name = "photo") String photo) throws UniversidadException {
+        ControladorUniversidades.getInstance().actualizarGallery(idUniversidad, photo);
     }
+
     @RequestMapping("/getUniversidadesByString")
-    @CrossOrigin(origins="http://localhost:3000/")
-    public List<UniversidadVO> getUniversidadesByString(@RequestParam(name = "universidades")String universidades) throws UniversidadException {
+    @CrossOrigin(origins = "http://localhost:3000/")
+    public List<UniversidadVO> getUniversidadesByString(@RequestParam(name = "universidades") String universidades) throws UniversidadException {
         return ControladorUniversidades.getInstance().UniversidadesByString(universidades);
+    }
+
+    @RequestMapping("/getUniversidadesByProvincia")
+    @CrossOrigin(origins = "http://localhost:3000/")
+    public List<UniversidadVO> getUniversidadesByProvincia(@RequestParam(name = "provincia") String provincia) throws UniversidadException {
+        return ControladorUniversidades.getInstance().getUniversidadesByProvincia(provincia);
     }
 
 }
