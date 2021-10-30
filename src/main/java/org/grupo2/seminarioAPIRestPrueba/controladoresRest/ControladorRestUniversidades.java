@@ -18,8 +18,9 @@ public class ControladorRestUniversidades {
                                  @RequestParam(name = "descripcion") String descripcion,
                                  @RequestParam(name = "ubicacion") String ubicacion,
                                  @RequestParam(name = "provincia") String provincia,
+                                 @RequestParam(name = "tipo") String tipo,
                                  @RequestParam(name = "localidad") String localidad) throws UniversidadException {
-        ControladorUniversidades.getInstance().crearUniversidad(nombre, descripcion, ubicacion, provincia, localidad);
+        ControladorUniversidades.getInstance().crearUniversidad(nombre, descripcion, ubicacion, provincia, localidad,tipo);
     }
 
     @PostMapping("/actualizarUniversidad")
