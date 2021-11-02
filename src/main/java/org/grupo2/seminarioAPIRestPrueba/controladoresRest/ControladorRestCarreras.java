@@ -158,6 +158,11 @@ public class ControladorRestCarreras {
     public List<CarreraVO> obtenerCarrerasByIDParticular(@RequestParam(name="carreras") List<Integer> idCarreras) throws CarreraException {
         return ControladorCarreras.getInstance().obtenerCarrerasByIDParticular(idCarreras);
     }
+    @RequestMapping("/getCarrerasDistintasComparacionById")
+    @CrossOrigin(origins = "http://localhost:3000/")
+    public List<CarreraVO> obtenerCarrerasDistintasByIDParticular(@RequestParam(name="carreras")String carreras) throws CarreraException {
+        return ControladorCarreras.getInstance().obtenerCarrerasDistintasByString(carreras);
+    }
 
 
 }
