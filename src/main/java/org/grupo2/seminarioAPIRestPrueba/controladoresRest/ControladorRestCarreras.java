@@ -9,7 +9,7 @@ import org.grupo2.vo.CarreraVO;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.util.List;
+import java.util.List;import java.util.Map;
 
 @RestController
 public class ControladorRestCarreras {
@@ -144,8 +144,8 @@ public class ControladorRestCarreras {
     }
     @RequestMapping("/getCarrerasByEtiquetas")
     @CrossOrigin(origins="http://localhost:3000/")
-    public List<CarreraVO> obtenerPuntuacionCarrera(@RequestParam(name="etiquetas")String etiquetas) throws EtiquetaCarreraException, CarreraException, EtiquetaException {
-        return ControladorCarreras.getInstance().obtenerCarrerasPorEtiquetas(etiquetas);
+    public int[][] obtenerPuntuacionCarrera(@RequestParam(name="etiquetas")String etiquetas) throws EtiquetaCarreraException, CarreraException, EtiquetaException {
+        return ControladorCarreras.getInstance().obtenerCarrerasCoincidencia(etiquetas);
     }
 
     @RequestMapping("/getCarrerasByString")
