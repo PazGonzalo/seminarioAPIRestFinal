@@ -70,9 +70,8 @@ public class ControladorRestCarreras {
 
     @PostMapping("/addPuntuacion")
     @CrossOrigin(origins="http://localhost:3000/")
-    public void agregarPuntuacion(@RequestParam(name = "idCarrera") int idCarrera,
-                                  @RequestParam(name = "puntuacion") int puntuacion) throws CarreraException {
-        ControladorCarreras.getInstance().agregarPuntuacion(idCarrera, puntuacion);
+    public void agregarPuntuacion(@RequestParam(name = "idCarrera") int idCarrera) throws CarreraException, PuntuacionesException {
+        ControladorCarreras.getInstance().agregarPuntuacion(idCarrera);
     }
 
     @RequestMapping("/getCarreraById")

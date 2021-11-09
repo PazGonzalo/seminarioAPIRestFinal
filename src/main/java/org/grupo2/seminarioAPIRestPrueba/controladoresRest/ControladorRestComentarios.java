@@ -58,7 +58,7 @@ public class ControladorRestComentarios {
 
     @RequestMapping("/aprobarComentario")
     @CrossOrigin(origins="http://localhost:3000/")
-    public void aprobarComentario(@RequestParam(name = "idComentario") int idComentario) throws ComentariosException {
+    public void aprobarComentario(@RequestParam(name = "idComentario") int idComentario) throws ComentariosException, PuntuacionesException, CarreraException {
         ControladorComentarios.getInstance().aprobarComentario(idComentario);
     }
 
