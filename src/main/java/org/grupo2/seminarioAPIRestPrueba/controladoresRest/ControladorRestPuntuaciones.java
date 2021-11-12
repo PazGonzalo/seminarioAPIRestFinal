@@ -21,7 +21,7 @@ public class ControladorRestPuntuaciones {
                                        @RequestParam(name = "idCarrera") int idCarrera) throws UniversidadException, CarreraException, PuntuacionesException, UsuarioException {
         ControladorPuntuaciones.getInstance().crearPuntuacionCarrera(alias, idUniversidad, puntuacion, idCarrera);
     }
-*/
+
     @PostMapping("/crearPuntuacionUniversidad")
     @CrossOrigin(origins="http://localhost:3000/")
     public void crearPuntuacionUniversidad(@RequestParam(name = "alias") String alias,
@@ -29,7 +29,7 @@ public class ControladorRestPuntuaciones {
                                            @RequestParam(name = "puntuacion") int puntuacion) throws UniversidadException, CarreraException, UsuarioException, PuntuacionesException {
         ControladorPuntuaciones.getInstance().crearPuntuacionUniversidad(alias, idUniversidad, puntuacion);
     }
-
+*/
     @RequestMapping("/getPuntuacionesCarrera")
     @CrossOrigin(origins="http://localhost:3000/")
     public List<PuntuacionVO> leerPuntuacionCarrera(@RequestParam(name = "idUniversidad") int idUniversidad,
@@ -49,5 +49,13 @@ public class ControladorRestPuntuaciones {
                                                          @RequestParam(name = "idCarrera") int idCarrera) throws PuntuacionesException {
         return ControladorPuntuaciones.getInstance().getPuntuacionByUsuarioAndCarrera(idUsuario, idCarrera);
     }
+
+    @RequestMapping("/getPuntuacionByUsuarioAndUniversidad")
+    @CrossOrigin(origins="http://localhost:3000/")
+    public PuntuacionVO getPuntuacionByUsuarioAndUniversidad(@RequestParam(name = "idUsuario") int idUsuario,
+                                                             @RequestParam(name = "idUniversidad") int idUniversidad) throws PuntuacionesException {
+        return ControladorPuntuaciones.getInstance().getPuntuacionByUsuarioAndUniversidad(idUsuario, idUniversidad);
+    }
+
 
 }

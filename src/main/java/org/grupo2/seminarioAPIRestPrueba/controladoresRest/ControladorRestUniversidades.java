@@ -99,4 +99,10 @@ public class ControladorRestUniversidades {
         return ControladorUniversidades.getInstance().getUniversidadesByCarreraAndTipo(idCarrera, tipo);
     }
 
+    @RequestMapping("/getUniversidadesByPuntuacion")
+    @CrossOrigin(origins = "http://localhost:3000/")
+    public List<UniversidadVO> getUniversidadesByPuntuacion() throws UniversidadException {
+        return ControladorUniversidades.getInstance().getUniversidadesByPuntuacion();
+    }
+
 }
