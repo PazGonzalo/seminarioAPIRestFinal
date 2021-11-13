@@ -25,8 +25,9 @@ public class ControladorRestCarreras {
                              @RequestParam(name = "mañana") boolean mañana,
                              @RequestParam(name = "tarde") boolean tarde,
                              @RequestParam(name = "noche") boolean noche,
+                             @RequestParam(name= "descAmigable") String descAmigable,
                              @RequestParam(name = "perfilProfesional") String perfil) throws UniversidadException, CarreraException {
-        ControladorCarreras.getInstance().crearCarrera(idUniversidad, nombre, descripcion, perfil, duracion,modalidad,mañana,tarde,noche);
+        ControladorCarreras.getInstance().crearCarrera(idUniversidad, nombre, descripcion, perfil, duracion,modalidad,mañana,tarde,noche,descAmigable);
     }
 
     @PostMapping("/agregarPlanEstudios")
