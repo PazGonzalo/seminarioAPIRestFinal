@@ -1,6 +1,7 @@
 package org.grupo2.seminarioAPIRestPrueba.controladoresRest;
 
 import org.grupo2.controladores.ControladorCharlas;
+import org.grupo2.exceptions.CarreraException;
 import org.grupo2.exceptions.CharlaException;
 import org.grupo2.vo.CharlaVO;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +19,10 @@ public class ControladorRestCharlas {
                                        @RequestParam(name = "descripcion") String descripcion,
                                        @RequestParam(name = "fecha") String fecha,
                                        @RequestParam(name = "hora") String hora,
-                                       @RequestParam(name = "idCarrera") int idCarrera) {
+                                       @RequestParam(name = "idCarrera") int idCarrera) throws CarreraException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate fechaFinal = LocalDate.parse(fecha, formatter);
+        ControladorCharlas.getInstancia().crearCharla(nombre,descripcion,fechaFinal,hora,idCarrera);
     }
 
     @RequestMapping("/getAllCharlas")
