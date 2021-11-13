@@ -19,8 +19,12 @@ public class ControladorRestUniversidades {
                                  @RequestParam(name = "ubicacion") String ubicacion,
                                  @RequestParam(name = "provincia") String provincia,
                                  @RequestParam(name = "tipo") String tipo,
-                                 @RequestParam(name = "localidad") String localidad) throws UniversidadException {
-        ControladorUniversidades.getInstance().crearUniversidad(nombre, descripcion, ubicacion, provincia, localidad,tipo);
+                                 @RequestParam(name = "localidad") String localidad,
+                                 @RequestParam(name = "url") String url,
+                                 @RequestParam(name = "twitter") String twitter,
+                                 @RequestParam(name = "instagram") String instagram,
+                                 @RequestParam(name = "facebook") String facebook) throws UniversidadException {
+        ControladorUniversidades.getInstance().crearUniversidad(nombre, descripcion, ubicacion,provincia,tipo,localidad,url,twitter,instagram,facebook);
     }
 
     @PostMapping("/actualizarUniversidad")
