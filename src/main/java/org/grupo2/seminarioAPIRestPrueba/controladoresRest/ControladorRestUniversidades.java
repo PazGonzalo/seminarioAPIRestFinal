@@ -71,12 +71,6 @@ public class ControladorRestUniversidades {
         return ControladorUniversidades.getInstance().getUniversidadesByCarrera(idCarrera);
     }
 
-    @PostMapping("/actualizarGallery")
-    @CrossOrigin(origins = "http://localhost:3000/")
-    public void actualizarGallery(@RequestParam(name = "idUniversidad") int idUniversidad, @RequestParam(name = "photo") String photo) throws UniversidadException {
-        ControladorUniversidades.getInstance().actualizarGallery(idUniversidad, photo);
-    }
-
     @RequestMapping("/getUniversidadesByString")
     @CrossOrigin(origins = "http://localhost:3000/")
     public List<UniversidadVO> getUniversidadesByString(@RequestParam(name = "universidades") String universidades) throws UniversidadException {
@@ -107,6 +101,18 @@ public class ControladorRestUniversidades {
     @CrossOrigin(origins = "http://localhost:3000/")
     public List<UniversidadVO> getUniversidadesByPuntuacion() throws UniversidadException {
         return ControladorUniversidades.getInstance().getUniversidadesByPuntuacion();
+    }
+
+    @RequestMapping("/getUniversidadesPatrocinadas")
+    @CrossOrigin(origins = "http://localhost:3000/")
+    public List<UniversidadVO> getUniversidadesPatrocinadas() throws UniversidadException {
+        return ControladorUniversidades.getInstance().getUniversidadesPatrocinadas();
+    }
+
+    @PostMapping("/actualizarPatrocinada")
+    @CrossOrigin(origins = "http://localhost:3000/")
+    public void actualizarPatrocinada(@RequestParam(name = "idUniversidad") int idUniversidad) throws UniversidadException {
+        ControladorUniversidades.getInstance().actualizarPatrocinada(idUniversidad);
     }
 
 }
