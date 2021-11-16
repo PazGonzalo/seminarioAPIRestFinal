@@ -5,10 +5,7 @@ import org.grupo2.exceptions.GaleriaException;
 import org.grupo2.exceptions.UniversidadException;
 import org.grupo2.modelo.Galeria;
 import org.grupo2.vo.GaleriaVO;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,7 +19,7 @@ public class ControladorRestGalerias {
                           @RequestParam(name = "idUniversidad") int idUniversidad) throws GaleriaException, UniversidadException {
         ControladorGalerias.getInstance().crearFotoUniversidad(nombre,archivo,idUniversidad);
     }
-    @PostMapping("/obtenerFotosPorUniversidad")
+    @RequestMapping("/obtenerFotosPorUniversidad")
     @CrossOrigin(origins = "http://localhost:3000/")
     public List<GaleriaVO> obtenerFotosPorUniversidad(int idUniversidad) throws GaleriaException {
         return ControladorGalerias.getInstance().obtenerFotosPorUniversidad(idUniversidad);
