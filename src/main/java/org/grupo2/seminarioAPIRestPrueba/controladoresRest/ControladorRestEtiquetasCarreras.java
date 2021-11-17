@@ -16,8 +16,9 @@ public class ControladorRestEtiquetasCarreras {
     @PostMapping("/crearEtiquetaCarrera")
     @CrossOrigin(origins="http://localhost:3000/")
     public void crearEtiquetaCarrera(@RequestParam(name = "idCarrera") int idCarrera,
+                                     @RequestParam(name = "peso") int peso,
                                      @RequestParam(name = "idEtiqueta") int idEtiqueta) throws EtiquetaCarreraException, CarreraException, EtiquetaException {
-        ControladorEtiquetasCarreras.getInstance().crearEtiquetasCarreras(idCarrera,idEtiqueta);
+        ControladorEtiquetasCarreras.getInstance().crearEtiquetasCarreras(idCarrera,idEtiqueta,peso);
     }
 
 }
