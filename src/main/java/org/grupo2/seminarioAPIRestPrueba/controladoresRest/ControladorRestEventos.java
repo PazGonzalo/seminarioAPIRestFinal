@@ -19,10 +19,11 @@ public class ControladorRestEventos {
                             @RequestParam(name = "descripcion") String descripcion,
                             @RequestParam(name = "fecha") String fecha,
                             @RequestParam(name = "hora") String hora,
+                            @RequestParam(name = "presentacion") String presentacion,
                             @RequestParam(name = "idUniversidad") int idUniversidad) throws UniversidadException, EventoException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate fechaFinal = LocalDate.parse(fecha, formatter);
-        ControladorEventos.getInstancia().crearEvento(nombre, descripcion, fechaFinal, hora, idUniversidad);
+        ControladorEventos.getInstancia().crearEvento(nombre, descripcion, fechaFinal, hora, idUniversidad,presentacion);
     }
 
     @RequestMapping("/getAllEventos")
